@@ -1,27 +1,18 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setItems } from "../../redux/actions";
-import WarehouseService from "../../services/warehouse-service";
+import React from "react";
 
-function Header() {
+import "./Header.css";
 
-    // const dispatch = useDispatch();
 
-    // const warehouseStore = useSelector(state => state.warehouseStore)
-
-    // useEffect(() => {
-    //     WarehouseService.getItems().then(res => {
-    //         dispatch(setItems(res.data))
-    //     })
-    // }, [])
-
-    // const allItems = warehouseStore.items.map(item => <h1>{item.Naziv}</h1>)
-
+function Header () {
     return (
-        <div>
-            <h1>Header</h1>
-        </div>
+        <nav className = "navbar navbar-expand-lg navbar-light bg-light">
+            <h5 className = "navbar-brand">Dobrodošli</h5>
+            <ul className = "navbar-nav ml-auto">
+                
+            </ul>
+        </nav>
     )
 }
 
-export default Header
+export default Header;
+
