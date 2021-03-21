@@ -25,9 +25,6 @@ function Items() {
         <div className="bg">
             <Row className="justify-content-center">
                 {allItems}
-                {allItems}
-                {allItems}
-                {allItems}
             </Row>
         </div>
     )
