@@ -10,7 +10,7 @@ function Bill() {
     const dispatch = useDispatch();
     const itemsStore = useSelector(state => state.itemsStore);
 
-    const billItems =   itemsStore.pickedItems ? itemsStore.pickedItems.map(pickedItem => <BillItem item = { pickedItem.item } number = { pickedItem.number } remove = { remove } />) : null;
+    const billItems =   itemsStore.pickedItems ? itemsStore.pickedItems.map(pickedItem => <BillItem key = { pickedItem.item.IDRecept } item = { pickedItem.item } number = { pickedItem.number } remove = { remove } />) : null;
 
     const price = () => {
         let price = 0;
