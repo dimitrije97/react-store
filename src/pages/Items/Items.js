@@ -11,7 +11,7 @@ function Items() {
 
     const dispatch = useDispatch();
 
-    const warehouseStore = useSelector(state => state.warehouseStore);
+    const itemsStore = useSelector(state => state.itemsStore);
 
     useEffect(() => {
         WarehouseService.getItems().then(res => {
@@ -19,7 +19,7 @@ function Items() {
         })
     }, [])
 
-    const allItems = warehouseStore.items ? warehouseStore.items.map(item => <Item item={item} key={item.IDRecept} />) : null;
+    const allItems = itemsStore.items ? itemsStore.items.map(item => <Item item={item} key={item.IDRecept} />) : null;
 
     return (
         <div className="bg">
