@@ -23,7 +23,7 @@ function Items() {
 
     return (
         <div className="bg">
-            <Row className="justify-content-center">
+            <Row>
                 {allItems}
             </Row>
         </div>

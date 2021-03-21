@@ -25,7 +25,7 @@ function Bill() {
     }
 
     return (
-        <div>
+        <div className="m-2">
             <Table striped bordered hover>
                 <thead>
                     <tr>
