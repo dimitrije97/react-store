@@ -7,6 +7,13 @@ export const setItems = (items) => {
     }
 }
 
+export const setPickedItems = (pickedItems) => {
+    return {
+        type: type.SET_PICKED_ITEMS,
+        payload: pickedItems
+    }
+}
+
 export const pickItem = (item, number) => {
     return {
         type: type.PICK_ITEM,

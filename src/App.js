@@ -15,9 +15,9 @@ function App() {
         <Provider store={store}>
             <Header />
 
-            <Row className="window">
-                <Col sm={3}><Bill /></Col>
+            <Row className="window bg-light">
                 <Col sm={9}><Items /></Col>
+                <Col sm={3}><Bill /></Col>
             </Row>
         </Provider>
     )

@@ -22,7 +22,7 @@ function Items() {
     const allItems = itemsStore.items ? itemsStore.items.map(item => <Item item={item} key={item.IDRecept} />) : null;
 
     return (
-        <div className="bg">
+        <div className="bg m-5">
             <Row>
                 {allItems}
             </Row>

@@ -1,35 +1,34 @@
-import React from "react";
-
-import Table from 'react-bootstrap/Table'
+import React, { useEffect, useState } from "react";
+import { Button, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { removePickedItem } from "../../redux/actions";
+import { setPickedItems } from "../../redux/actions";
+import WarehouseService from "../../services/warehouse-service";
+
 import BillItem from "../BillItem/BillItem";
 
 function Bill() {
 
     const dispatch = useDispatch();
+    const[price, setPrice] = useState(0);
+
     const itemsStore = useSelector(state => state.itemsStore);
 
-    const billItems =   itemsStore.pickedItems ? itemsStore.pickedItems.map(pickedItem => <BillItem key = { pickedItem.item.IDRecept } item = { pickedItem.item } number = { pickedItem.number } remove = { remove } />) : null;
-
-    const price = () => {
-        let price = 0;
-        itemsStore.pickedItems.map(pickedItem => {
-            price += pickedItem.item.Ceba * pickedItem.number;
+    useEffect(() => {
+        WarehouseService.getPickedItems().then(res => {
+            dispatch(setPickedItems(res.data))
+            setPrice(res.data.UkupnoZaduzenje)
         })
-        return price;
-    }
+    }, [])
+    
 
-    const remove = id => {
-        dispatch(removePickedItem(id));
-    }
+    const billItems =   itemsStore.pickedItems ? itemsStore.pickedItems.StavkeRacuna.map(pickedItem => <BillItem key = { pickedItem.recept.Idrecept } item = { pickedItem.recept } number = { pickedItem.kolicina } />) : null;
 
     return (
-        <div className="m-2">
+        <div className="m-5">
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>x</th>
+                        <th>Količina</th>
                         <th>Naziv</th>
                         <th>Cena</th>
                         <th></th>
@@ -37,14 +36,15 @@ function Bill() {
                 </thead>
                 <tbody>
                     { billItems }
-                    <tr>
+                </tbody>
+                <tfoot>
+                     <tr>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        { price }
+                        <td><Button variant = "info" onClick = { () => {}}>Plati</Button></td>
+                        <td>{ price }</td>
                         <td></td>
                     </tr>
-                </tbody>
+                </tfoot>
             </Table>
         </div>
     )
