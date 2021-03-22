@@ -1,0 +1,4 @@
+{
+  "StavkeRacuna": [{"recept": {"Idrecept": 1, "Naziv": "Pljeskavica", "Cena": 300.00, "Slika": null}, "kolicina": 2}, {"recept": {"Idrecept": 3, "Naziv": "Indeks", "Cena": 250.00, "Slika": null}, "kolicina": 3}],
+  "UkupnoZaduzenje": 1350.00
+}
