@@ -6,7 +6,7 @@ class WarehouseService{
     }
 
     static getPickedItems = () => {
-        return axios.get("https://raw.githubusercontent.com/dimitrije97/react-store/main/odabrani.json");
+        return axios.get("https://raw.githubusercontent.com/dimitrije97/react-store/main/racun.json");
     }
 }
 
